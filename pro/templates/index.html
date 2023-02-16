@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Multipurpose text data Extractor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="main.js"></script>
+    
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" href="/">Multipurpose text data Extractor</a>
+</nav>
+<br/>
+<br/>
+<br/>
+    <div class="container" align="center">
+        <h3>Upload your files here</h3>
+    <p>Upload pdf or microsoft word file</p>
+    <form action="/" method="post" enctype="multipart/form-data" >
+      <input type="file" name="file" onchange="checkfile()" required multiple>
+      <br><br>
+      <!--<input type="submit" value="Upload">-->
+      <!--<button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Upload</button>
+      <br>
+      <br>-->
+      <div class="form-check" >
+        <label>Select Option</label><br>
+        <label class="form-check-label" for="docemail">
+        <input class="form-check-input" type="radio" value="email" id="docemail" name="taskoption" >
+        Email</label><br>
+        <label class="form-check-label" for="docphone">
+        <input class="form-check-input" type="radio" value="phone" id="docphone" name="taskoption" >
+        Phone Number</label><br>
+        <label class="form-check-label" for="docurls">
+        <input class="form-check-input" type="radio" value="url_https" id="docurls" name="taskoption" >
+        Url /https or http</label><br>
+        <label class="form-check-label" for="docurl">
+        <input class="form-check-input" type="radio" value="url" id="docurl" name="taskoption">
+        Url / www. ...</label><br>
+        <label class="form-check-label" for="docdate">
+        <input class="form-check-input" type="radio" value="date" id="docdate" name="taskoption">
+        Date</label><br>
+      </div>
+      <br><a href="/" class="btn btn-outline-success">Refresh</a>
+      <button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Submit</button>
+    </form>
+<hr>
+    <div class="container">
+    	<div class="alert alert-success" role="alert">
+            <br>
+        <p class="alert-heading">Results</p>
+        <p>Number of result:{{num_of_result}}</p>
+        <ul>{% for i in result %}
+        	<li>{{i}}</li>
+        	{%endfor %}
+    	</ul>
+    	</div>
+<br>
+<br>
+
+        <form method="POST" action="/process">
+            <div class="form-group">
+                <h2>OR</h2><br><br>
+                <h3>Enter Your Data</h3>
+                    
+            <textarea type="text" rows="5" cols="5" class="form-control"  name="rawtext"  placeholder="Your Text" required onchange="checktext()"></textarea>
+            <br/>
+            <label>Select Option</label><br>
+            <label class="form-check-label" for="textemail">
+        <input class="form-check-input" type="radio" value="email" id="textemail" name="taskoption">
+        Email</label><br>
+        <label class="form-check-label" for="textphone">
+        <input class="form-check-input" type="radio" value="phone" id="textphone" name="taskoption">
+        Phone Number</label><br>
+        <label class="form-check-label" for="texturls">
+        <input class="form-check-input" type="radio" value="url_https" id="texturls" name="taskoption">
+        Url /https or http</label><br>
+        <label class="form-check-label" for="texturl">
+        <input class="form-check-input" type="radio" value="url" id="texturl" name="taskoption">
+        Url / www. ...</label><br>
+        <label class="form-check-label" for="textdate">
+        <input class="form-check-input" type="radio" value="date" id="textdate" name="taskoption">
+        Date</label><br>
+			<br/>
+            <a href="/" class="btn btn-outline-success">Refresh</a>
+            <button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Submit</button>
+         
+        </div>
+        </form>
+    </div>
+
+    <div class="container">
+    	<div class="alert alert-success" role="alert">
+        <p class="alert-heading">Results</p>
+        <p>Number of results:{{num_of_results}}</p>
+        <ul>{% for i in results %}
+        	<li>{{i}}</li>
+        	{%endfor %}
+    	</ul>
+    	</div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script>
+    
+    document.getElementById("textemail").disabled = true;
+    document.getElementById("textphone").disabled = true;
+    document.getElementById("texturls").disabled = true;
+    document.getElementById("texturl").disabled = true;
+    document.getElementById("textdate").disabled = true; 
+    document.getElementById("docemail").disabled = true;
+    document.getElementById("docphone").disabled = true;
+    document.getElementById("docurls").disabled = true;
+    document.getElementById("docurl").disabled = true;
+    document.getElementById("docdate").disabled = true;  
+    
+    function checkfile()
+    {
+    document.getElementById("docemail").disabled = false;
+    document.getElementById("docphone").disabled = false;
+    document.getElementById("docurls").disabled = false;
+    document.getElementById("docurl").disabled = false;
+    document.getElementById("docdate").disabled = false;  
+       
+    }
+    function checktext()
+    {
+        document.getElementById("textemail").disabled = false;
+        document.getElementById("textphone").disabled = false;
+        document.getElementById("texturls").disabled = false;
+        document.getElementById("texturl").disabled = false;
+        document.getElementById("textdate").disabled = false;
+    }
+    </script>
+</body>
+</html>
