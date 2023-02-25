@@ -25,30 +25,33 @@
     <form action="/" method="post" enctype="multipart/form-data" >
       <input type="file" name="file" onchange="checkfile()" required multiple>
       <br><br>
-      <!--<input type="submit" value="Upload">-->
-      <!--<button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Upload</button>
-      <br>
-      <br>-->
+      
       <div class="form-check" >
         <label>Select Option</label><br>
+        
         <label class="form-check-label" for="docemail">
-        <input class="form-check-input" type="radio" value="email" id="docemail" name="taskoption" >
+        <input class="form-check-input" type="checkbox" value="email" id="docemail" name="taskoption" >
         Email</label><br>
         <label class="form-check-label" for="docphone">
-        <input class="form-check-input" type="radio" value="phone" id="docphone" name="taskoption" >
+        <input class="form-check-input" type="checkbox" value="phone" id="docphone" name="taskoption" >
         Phone Number</label><br>
         <label class="form-check-label" for="docurls">
-        <input class="form-check-input" type="radio" value="url_https" id="docurls" name="taskoption" >
+        <input class="form-check-input" type="checkbox" value="url_https" id="docurls" name="taskoption" >
         Url /https or http</label><br>
         <label class="form-check-label" for="docurl">
-        <input class="form-check-input" type="radio" value="url" id="docurl" name="taskoption">
+        <input class="form-check-input" type="checkbox" value="url" id="docurl" name="taskoption">
         Url / www. ...</label><br>
         <label class="form-check-label" for="docdate">
-        <input class="form-check-input" type="radio" value="date" id="docdate" name="taskoption">
+        <input class="form-check-input" type="checkbox" value="date" id="docdate" name="taskoption">
         Date</label><br>
+        <label  for="regex">
+        <input class="form-check-input" type="checkbox" value="user_input" id="docregex" name="taskoption">
+        Regular Expression:</label>
+        <input class="form-control" type="text" name="regex" id="regex"  ><br>
       </div>
       <br><a href="/" class="btn btn-outline-success">Refresh</a>
       <button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Submit</button>
+      <a href="{{ url_for('index') }}" class="btn"><i class="fa fa-download"></i> Download</a>
     </form>
 <hr>
     <div class="container">
@@ -73,23 +76,28 @@
             <br/>
             <label>Select Option</label><br>
             <label class="form-check-label" for="textemail">
-        <input class="form-check-input" type="radio" value="email" id="textemail" name="taskoption">
+        <input class="form-check-input" type="checkbox" value="email" id="textemail" name="taskoption">
         Email</label><br>
         <label class="form-check-label" for="textphone">
-        <input class="form-check-input" type="radio" value="phone" id="textphone" name="taskoption">
+        <input class="form-check-input" type="checkbox" value="phone" id="textphone" name="taskoption">
         Phone Number</label><br>
         <label class="form-check-label" for="texturls">
-        <input class="form-check-input" type="radio" value="url_https" id="texturls" name="taskoption">
+        <input class="form-check-input" type="checkbox" value="url_https" id="texturls" name="taskoption">
         Url /https or http</label><br>
         <label class="form-check-label" for="texturl">
-        <input class="form-check-input" type="radio" value="url" id="texturl" name="taskoption">
+        <input class="form-check-input" type="checkbox" value="url" id="texturl" name="taskoption">
         Url / www. ...</label><br>
         <label class="form-check-label" for="textdate">
-        <input class="form-check-input" type="radio" value="date" id="textdate" name="taskoption">
+        <input class="form-check-input" type="checkbox" value="date" id="textdate" name="taskoption">
         Date</label><br>
+        <label  for="regex">
+            <input class="form-check-input" type="checkbox" value="user_input" id="textregex" name="taskoption">
+            Regular Expression:</label>
+            <input class="form-control" type="text" name="regex" id="regex"  ><br>
 			<br/>
             <a href="/" class="btn btn-outline-success">Refresh</a>
             <button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Submit</button>
+            
          
         </div>
         </form>
@@ -116,11 +124,13 @@
     document.getElementById("texturls").disabled = true;
     document.getElementById("texturl").disabled = true;
     document.getElementById("textdate").disabled = true; 
+    document.getElementById("textregex").disabled = true;
     document.getElementById("docemail").disabled = true;
     document.getElementById("docphone").disabled = true;
     document.getElementById("docurls").disabled = true;
     document.getElementById("docurl").disabled = true;
-    document.getElementById("docdate").disabled = true;  
+    document.getElementById("docdate").disabled = true;
+    document.getElementById("docregex").disabled = true;  
     
     function checkfile()
     {
@@ -128,7 +138,8 @@
     document.getElementById("docphone").disabled = false;
     document.getElementById("docurls").disabled = false;
     document.getElementById("docurl").disabled = false;
-    document.getElementById("docdate").disabled = false;  
+    document.getElementById("docdate").disabled = false; 
+    document.getElementById("docregex").disabled = false; 
        
     }
     function checktext()
@@ -138,6 +149,7 @@
         document.getElementById("texturls").disabled = false;
         document.getElementById("texturl").disabled = false;
         document.getElementById("textdate").disabled = false;
+        document.getElementById("textregex").disabled = false;
     }
     </script>
 </body>
