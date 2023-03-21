@@ -10,121 +10,238 @@
     crossorigin="anonymous">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="main.js"></script>
-    
+    <style>
+      .head{
+        font-family: "Times New Roman";
+        background-image: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d);
+      }
+      
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-  <a class="navbar-brand" href="/">Multipurpose text data Extractor</a>
+  <a class="navbar-brand" href="/" >Multipurpose text data Extractor</a>
 </nav>
 <br/>
 <br/>
 <br/>
+<div class="head" >
+<div class="row">
+    <div class="col-md-4 border-right" >
+        <h3>Multipurpose text data Extractor</h3>
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title border-top">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                  About Website</a>
+                </h4>
+              </div>
+              <div id="collapse1" class="panel-collapse collapse in">
+                <div class="panel-body">Multipurpose Text Data extractor is a website which extracts the data like email, phone number, url(both http and https) and date from files. 
+                    <br>Besides given option if anyone knows about python regular expression they can add their own regex selecting option "Regular Expression".</div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                  What is Regular Expression?</a>
+                </h4>
+              </div>
+              <div id="collapse2" class="panel-collapse collapse">
+                <div class="panel-body">Regular expression extracts or matches the specific data from your data. 
+                    It is used in most of programming languages like Java, Python. <br>As this website created using python we prefer here python regular expressions.
+                You can visit the website <a href="https://docs.python.org/3/library/re.html">https://docs.python.org/3/library/re.html</a> for more information.</div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                  Allowed File Formats</a>
+                </h4>
+              </div>
+              <div id="collapse3" class="panel-collapse collapse">
+                <div class="panel-body">File formats like 'pdf', 'txt', 'docx', 'png', 'jpg', 'jpeg', 'gif' are allowed to upload.
+                    Also file size upto 5 GB is allowed.<br> <b>Note:</b> The accuracy of text extraction from image can depend on several factors, including the quality and resolution of the image, the complexity of the text, the font and font size used, and the lighting conditions under which the image was captured.
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+                    Phone No. Formats</a>
+                  </h4>
+                </div>
+                <div id="collapse4" class="panel-collapse collapse">
+                    <div class="panel-body">Following Phone No. formats will get extracted.<br>
+                       <b> Note:</b> These numbers are only for reference purpose and they are random.
+                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item">111-222-3333</li>
+                        <li class="list-group-item">111 222 3333</li>
+                        <li class="list-group-item">111.222.3333</li>
+                        <li class="list-group-item">(111)222-3333</li>                       
+                        <li class="list-group-item">(111)222 3333</li>                        
+                        <li class="list-group-item">(111)222.3333</li>                      
+                        <li class="list-group-item">(111) 222-3333</li>                       
+                        <li class="list-group-item">(111) 222 3333</li>                       
+                        <li class="list-group-item">(111) 222.3333</li>                      
+                        <li class="list-group-item">111-2222</li>                       
+                        <li class="list-group-item">111 2222</li>                      
+                        <li class="list-group-item">111.2222</li>                       
+                        <li class="list-group-item">1234567</li>                       
+                        <li class="list-group-item">9876543210</li>                      
+                        <li class="list-group-item">(123)4567894</li>                     
+                        <li class="list-group-item">+11 222 232 4545</li>                      
+                        <li class="list-group-item">+99.256.666.1111</li>                      
+                        <li class="list-group-item">+15-564-135-8585</li>                    
+                        <li class="list-group-item">+123456789012</li>                      
+                        <li class="list-group-item">1234 5647892549</li>                      
+                        <li class="list-group-item">222-565-111-0120</li>                      
+                        <li class="list-group-item">01234856974561</li>                     
+                        <li class="list-group-item">+98 (765)432 1234</li>                     
+                        <li class="list-group-item">1564 (111)000-4561</li>                    
+                        <li class="list-group-item">0564(021)850-0640</li>                    
+                        <li class="list-group-item">02222-221181</li>
+                     </ul>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+                    Date Formats</a>
+                  </h4>
+                </div>
+                <div id="collapse5" class="panel-collapse collapse">
+                  <div class="panel-body">Following Date formats will get extracted.
+                  </div>
+                  <ul class="list-group">
+                    <li class="list-group-item">2001.05.06</li>
+                    <li class="list-group-item">23-jan-2014</li>
+                    <li class="list-group-item">3004.january.23</li>
+                    <li class="list-group-item">Jan/26/2014</li>
+                    <li class="list-group-item">1.1.2001</li>
+                    <li class="list-group-item">2001.5.6</li>
+                    <li class="list-group-item">05.06.2001</li>
+                    <li class="list-group-item">2001/12/07</li>
+                    <li class="list-group-item">2001-04-08</li>
+                    <li class="list-group-item">18-Jan-2023</li>
+                    <li class="list-group-item">2001/5/8</li>
+                    <li class="list-group-item">07-28-2019</li>
+                 </ul>
+                </div>
+              </div>
+<p><b>Note:</b> After downloading csv file adjust the columns to see results properly.</p>
+
+          </div><!--panel end-->
+
+    </div><!--column end-->
+
+    <div class="col-md-8 ">
     <div class="container" align="center">
         <h3>Upload your files here</h3>
-    <p>Upload pdf or microsoft word file</p>
+    
     <form action="/" method="post" enctype="multipart/form-data" >
       <input type="file" name="file" onchange="checkfile()" required multiple>
       <br><br>
       
       <div class="form-check" >
         <label>Select Option</label><br>
-        
+
+        <div style="margin-left: 10px">
         <label class="form-check-label" for="docemail">
-        <input class="form-check-input" type="checkbox" value="email" id="docemail" name="taskoption" >
-        Email</label><br>
+        <input class="form-check-input" type="checkbox" value="email" id="docemail" name="taskoption1" >
+        Email</label><br></div>
+        <div style="margin-left: 70px">
         <label class="form-check-label" for="docphone">
-        <input class="form-check-input" type="checkbox" value="phone" id="docphone" name="taskoption" >
-        Phone Number</label><br>
+        <input class="form-check-input" type="checkbox" value="phone" id="docphone" name="taskoption2" >
+        Phone Number</label><br></div>
+        <div style="margin-left: 80px">
         <label class="form-check-label" for="docurls">
-        <input class="form-check-input" type="checkbox" value="url_https" id="docurls" name="taskoption" >
-        Url /https or http</label><br>
+        <input class="form-check-input" type="checkbox" value="url_https" id="docurls" name="taskoption3" >
+        Url /https or http</label><br></div>
+        <div style="margin-left: 60px">
         <label class="form-check-label" for="docurl">
-        <input class="form-check-input" type="checkbox" value="url" id="docurl" name="taskoption">
-        Url / www. ...</label><br>
+        <input class="form-check-input" type="checkbox" value="url" id="docurl" name="taskoption4">
+        Url / www. ...</label><br></div>
+        <div style="margin-left: 5px">
         <label class="form-check-label" for="docdate">
-        <input class="form-check-input" type="checkbox" value="date" id="docdate" name="taskoption">
-        Date</label><br>
+        <input class="form-check-input" type="checkbox" value="date" id="docdate" name="taskoption5">
+        Date</label><br></div>
+        <div style="margin-left: 105px"> 
         <label  for="regex">
-        <input class="form-check-input" type="checkbox" value="user_input" id="docregex" name="taskoption">
+        <input class="form-check-input" type="checkbox" value="user_input" id="docregex" name="taskoption6">
         Regular Expression:</label>
-        <input class="form-control" type="text" name="regex" id="regex"  ><br>
+        <input class="form-control" type="text" name="regex" id="regex"  ><br></div>
+        
+
       </div>
       <br><a href="/" class="btn btn-outline-success">Refresh</a>
       <button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Submit</button>
-      <a href="{{ url_for('index') }}" class="btn"><i class="fa fa-download"></i> Download</a>
+      <a onclick="dcsv()" class="btn"><i class="fa fa-download"></i> Download</a>
     </form>
 <hr>
     <div class="container">
     	<div class="alert alert-success" role="alert">
             <br>
         <p class="alert-heading">Results</p>
-        <p>Number of result:{{num_of_result}}</p>
-        <ul>{% for i in result %}
-        	<li>{{i}}</li>
-        	{%endfor %}
-    	</ul>
-    	</div>
-<br>
-<br>
+     
+       {% for i in result %}
+       <ul>
 
-        <form method="POST" action="/process">
-            <div class="form-group">
-                <h2>OR</h2><br><br>
-                <h3>Enter Your Data</h3>
-                    
-            <textarea type="text" rows="5" cols="5" class="form-control"  name="rawtext"  placeholder="Your Text" required onchange="checktext()"></textarea>
-            <br/>
-            <label>Select Option</label><br>
-            <label class="form-check-label" for="textemail">
-        <input class="form-check-input" type="checkbox" value="email" id="textemail" name="taskoption">
-        Email</label><br>
-        <label class="form-check-label" for="textphone">
-        <input class="form-check-input" type="checkbox" value="phone" id="textphone" name="taskoption">
-        Phone Number</label><br>
-        <label class="form-check-label" for="texturls">
-        <input class="form-check-input" type="checkbox" value="url_https" id="texturls" name="taskoption">
-        Url /https or http</label><br>
-        <label class="form-check-label" for="texturl">
-        <input class="form-check-input" type="checkbox" value="url" id="texturl" name="taskoption">
-        Url / www. ...</label><br>
-        <label class="form-check-label" for="textdate">
-        <input class="form-check-input" type="checkbox" value="date" id="textdate" name="taskoption">
-        Date</label><br>
-        <label  for="regex">
-            <input class="form-check-input" type="checkbox" value="user_input" id="textregex" name="taskoption">
-            Regular Expression:</label>
-            <input class="form-control" type="text" name="regex" id="regex"  ><br>
-			<br/>
-            <a href="/" class="btn btn-outline-success">Refresh</a>
-            <button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Submit</button>
-            
-         
-        </div>
-        </form>
-    </div>
-
-    <div class="container">
-    	<div class="alert alert-success" role="alert">
-        <p class="alert-heading">Results</p>
-        <p>Number of results:{{num_of_results}}</p>
-        <ul>{% for i in results %}
-        	<li>{{i}}</li>
+          {% for j in i %}
+        	<li>{{j}}</li>
         	{%endfor %}
-    	</ul>
+        </ul>
+        	{%endfor %}
+  
     	</div>
-    </div>
+      <script>
+        
     
+        function dcsv()
+        {
+          let result={{result | tojson}}
+          console.log(result.toString())
+          let transposedResult = [];
+  for (let i = 0; i < result[0].length; i++) {
+    let newRow = [];
+    for (let j = 0; j < result.length; j++) {
+      newRow.push(result[j][i]);
+    }
+    transposedResult.push(newRow);
+  }
+  
+  let csvContent = "data:text/csv;charset=utf-8," 
+    + transposedResult.map(e => e.join(",")).join("\n");
+    
+  var encodedUri = encodeURI(csvContent);
+  var link = document.createElement("a");
+  link.setAttribute("href", encodedUri);
+  link.setAttribute("download", "Output.csv");
+  document.body.appendChild(link); // Required for FF
+  
+  link.click();
+
+  
+        }
+      </script>
+ 
+</div><!--column end-->
+</div> <!--row end-->
+
+
+</div><!--css end-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 <script>
     
-    document.getElementById("textemail").disabled = true;
-    document.getElementById("textphone").disabled = true;
-    document.getElementById("texturls").disabled = true;
-    document.getElementById("texturl").disabled = true;
-    document.getElementById("textdate").disabled = true; 
-    document.getElementById("textregex").disabled = true;
+    
     document.getElementById("docemail").disabled = true;
     document.getElementById("docphone").disabled = true;
     document.getElementById("docurls").disabled = true;
@@ -142,15 +259,8 @@
     document.getElementById("docregex").disabled = false; 
        
     }
-    function checktext()
-    {
-        document.getElementById("textemail").disabled = false;
-        document.getElementById("textphone").disabled = false;
-        document.getElementById("texturls").disabled = false;
-        document.getElementById("texturl").disabled = false;
-        document.getElementById("textdate").disabled = false;
-        document.getElementById("textregex").disabled = false;
-    }
+    
     </script>
+    
 </body>
 </html>
